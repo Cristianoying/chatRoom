@@ -2,10 +2,10 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 
 const constantRoutes:Array<RouteRecordRaw> = [
- {
+  {
     path: '/',
-    component: () => import('@/views/home'),
- },
+    component: () => import('@/views/home/index.vue'),
+  },
 ]
 
 export const asyncRoutes:RouteRecordRaw[] = [];
