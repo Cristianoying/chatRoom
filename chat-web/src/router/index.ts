@@ -6,6 +6,10 @@ const constantRoutes:Array<RouteRecordRaw> = [
     path: '/',
     component: () => import('@/views/home/index.vue'),
   },
+  {
+    path: '/mine',
+    component: () => import('@/views/mine/index.vue')
+  }
 ]
 
 export const asyncRoutes:RouteRecordRaw[] = [];

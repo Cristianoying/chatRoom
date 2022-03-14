@@ -1,17 +1,32 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <div>home</div>
+  <div>home {{ a }}
+    <button @click="emitMsg">发消息</button>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<script lang="ts" setup>
+import { onMounted, ref, Ref } from 'vue';
+import { io } from "socket.io-client";
+const a:Ref<number> = ref(0)
+const socket:any = ref(null)
+onMounted(async () => {
+  socket.value = io('http://127.0.0.1:7001/', {
+    query: {
+      id: 1,
+    },
+    transports: ['websocket'],
+  })
+  socket.value.on('connect', (...params: any) => {
+    console.log(params, 'connect===');
+  })
+  socket.value.on('disconnect', (...params: any) => {
+    console.log(params, 'disconnect===');
+  })
+})
+
+function emitMsg() {
+  socket.value.emit('news', {
+  title: 'this is a news',
+});
 }
-</style>
+</script>
