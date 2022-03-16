@@ -5,5 +5,5 @@ export default (app: Application) => {
 
   router.get('/', controller.home.index);
   // socket.io 路由
-  io.of('/').route('ping', io.controller.chat.ping)
+  io.of('/').route('exchange', io.controller.chat.ping);
 };

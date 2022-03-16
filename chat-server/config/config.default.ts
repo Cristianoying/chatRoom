@@ -9,6 +9,24 @@ export default (appInfo: EggAppInfo) => {
 
   // add your egg config in here
   config.middleware = ['test'];
+  config.cors = {
+    origin: '*', // 匹配规则  域名+端口  *则为全匹配
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  }
+
+  // socket.io 配置
+  config.io = {
+    init: {
+      wsEngine: 'ws',
+    },
+    namespace: {
+      '/': {
+        connectionMiddleware: ['auth'],
+        packetMiddleware: [],
+      }
+    },
+  };
+  
 
   // add your special config in here
   const bizConfig = {

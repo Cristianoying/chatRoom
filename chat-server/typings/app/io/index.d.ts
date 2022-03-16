@@ -3,7 +3,6 @@
 
 import 'egg';
 import ExportControllerChat from '../../../app/io/controller/chat';
-import ExportControllerIndex from '../../../app/io/controller/index';
 import ExportMiddlewareAuth from '../../../app/io/middleware/auth';
 
 declare module 'egg' {
@@ -14,7 +13,6 @@ declare module 'egg' {
   interface IO {
     controller: {
       chat: ExportControllerChat;
-      index: ExportControllerIndex;
     }
     middleware: {
       auth: ExportMiddlewareAuth;

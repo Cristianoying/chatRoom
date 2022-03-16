@@ -2,7 +2,17 @@ import { Controller } from 'egg';
 
 export default class ChatController extends Controller {
   async ping() {
-    const message:string = this.ctx.args[0];
-    await this.ctx.socket.emit('res', `Hi! I've got your message: ${message}`);
+    const { ctx, app } = this;
+    const nsp = app.io.of('/');
+    const message = ctx.args[0] || {};
+    const socket = ctx.socket;
+    const client = socket.id;
+
+    try {
+      console.log(client, message, nsp);
+      this.ctx.socket.emit('get message')
+    } catch (error) {
+      app.logger.error(error);
+    }
   }
 }
