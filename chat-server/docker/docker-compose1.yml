@@ -1,0 +1,26 @@
+version: '3'
+services:
+  chat-mongo:
+    image: mongo:4.0
+    ports:
+      - 27017:27017
+    volumes:
+      - "./data/db:/data/db"
+      # - "/etc/localtime:/etc/localtime"
+    networks:
+      - my-network
+
+  chat-service:
+    build: chat-service
+    image: chat-service
+    restart: always
+    ports:
+      - 9999:9999
+    depends_on:
+      - chat-mongo
+    networks:
+      - my-network
+
+networks:
+    my-network:
+      driver: bridge

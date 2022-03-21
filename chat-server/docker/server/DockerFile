@@ -1,0 +1,11 @@
+FROM node
+MAINTAINER dingding
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY ../../* app/chatServer
+
+CMD [ "npm", "start" ]
+
+EXPOSE 9999

@@ -10,7 +10,7 @@ export default class ChatController extends Controller {
 
     try {
       console.log(client, message, nsp);
-      this.ctx.socket.emit('get message')
+      this.ctx.socket.emit('get message');
     } catch (error) {
       app.logger.error(error);
     }
