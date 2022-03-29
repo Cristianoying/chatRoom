@@ -1,5 +1,4 @@
 FROM node
-MAINTAINER dingding
 
 RUN mkdir -p /app
 WORKDIR /app

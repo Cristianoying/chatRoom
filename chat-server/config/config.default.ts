@@ -28,7 +28,7 @@ export default (appInfo: EggAppInfo) => {
   };
   config.mongoose = {
     client: {
-      url: 'mongodb://cris:cris@127.0.0.1:27017',
+      url: 'mongodb://cris:cris@127.0.0.1:27017/chat_room',
       options: {
         autoIndex: false,
         poolSize: 20,
