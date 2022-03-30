@@ -10,16 +10,14 @@ export interface User extends Document {
   email?: string;
   userName: string; // 用户名
   password: string; // 密码
-  passwordV: number; // 密码版本
+  passwordV?: number; // 密码版本
   headImg?: string; // 头像
   phone?: string; // 手机号
   remark?: string; // 备注
-  status: number; // 状态 状态 0:禁用 1：启用
+  status?: number; // 状态 状态 0:禁用 1：启用
   departmentName?: string; // 部门名称
-  roleIdList: Schema.Types.ObjectId[]; // 角色列表
+  roleIdList?: Schema.Types.ObjectId[]; // 角色列表
   socketId?: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
 interface UserModel extends Model<User> {}
 

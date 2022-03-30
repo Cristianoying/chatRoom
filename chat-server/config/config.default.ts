@@ -8,7 +8,7 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1647261472209_1558';
 
   // add your egg config in here
-  config.middleware = [ 'test' ];
+  config.middleware = [ 'auth' ];
   config.cors = {
     origin: '*', // 匹配规则  域名+端口  *则为全匹配
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
@@ -26,6 +26,15 @@ export default (appInfo: EggAppInfo) => {
       },
     },
   };
+  // redis配置
+  config.redis = {
+    client: {
+      port: 6382, // Redis port
+      host: '127.0.0.1', // Redis host
+      password: 'Senscape',
+      db: 0,
+    },
+  };
   config.mongoose = {
     client: {
       url: 'mongodb://cris:cris@127.0.0.1:27017/chat_room',
@@ -40,6 +49,10 @@ export default (appInfo: EggAppInfo) => {
         useFindAndModify: false,
       },
     },
+  };
+  // jwt配置
+  config.jwt = {
+    secret: 'cris',
   };
 
 
