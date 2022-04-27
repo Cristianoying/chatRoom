@@ -4,7 +4,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 const constantRoutes:Array<RouteRecordRaw> = [
   {
     path: '/',
-    component: () => import('@/views/home/index.vue'),
+    component: () => import('@/views/chat/index.vue'),
   },
   {
     path: '/mine',

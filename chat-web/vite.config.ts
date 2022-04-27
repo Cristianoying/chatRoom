@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import styleImport, { VantResolve } from 'vite-plugin-style-import';
-import { join } from "path";
+import { join, resolve } from "path";
 import legacy from '@vitejs/plugin-legacy';
 import viteCompression from 'vite-plugin-compression';
 
@@ -22,6 +22,16 @@ export default defineConfig({
     // gizp压缩
     viteCompression()
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        modifyVars: {
+          hack: `true;`,
+        },
+        javascriptEnabled: true,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': join(__dirname, './src'),
