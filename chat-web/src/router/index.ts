@@ -9,6 +9,10 @@ const constantRoutes:Array<RouteRecordRaw> = [
   {
     path: '/mine',
     component: () => import('@/views/mine/index.vue')
+  },
+  {
+    path: '/chat-with-friend',
+    component: () => import('@/views/friend/index.vue')
   }
 ]
 

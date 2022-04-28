@@ -18,7 +18,8 @@ function tabChange(active: string): void {
 
 <style lang="less" scoped>
 .tab-content {
-  height: calc(100vh - 36px);
+  background: #f6f6f6;
+  height: calc(100vh - 50px);
   overflow-x: hidden;
   overflow-y: scroll;
 }

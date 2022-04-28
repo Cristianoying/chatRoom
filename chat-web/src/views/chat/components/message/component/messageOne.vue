@@ -1,6 +1,6 @@
 <template>
   <van-swipe-cell>
-    <div class="chat-message">
+    <div class="chat-message" @click="chatWithFriend">
       <div class="img">
         <img :src="props.friend.headImg" />
       </div>
@@ -26,12 +26,15 @@
 
 <script setup lang="ts">
 import { ref, Ref, computed, getCurrentInstance } from "vue";
+import { useRouter } from 'vue-router';
 const { proxy } = getCurrentInstance();
-
+const { push } = useRouter()
+function chatWithFriend() {
+  push('/chat-with-friend')
+}
 const props = defineProps({
   id: {
-    type: String,
-    default: "",
+    type: Number,
   },
   friend: {
     type: Object,

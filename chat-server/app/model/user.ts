@@ -25,17 +25,17 @@ module.exports = (app: Application) => {
   const { mongoose } = app;
 
   const UserSchema = new Schema<UserModel>({
-    name: { type: String, index: true, required: true },
+    name: { type: String, index: true },
     uid: { type: String, index: true, required: true },
     age: { type: Number, default: 18 },
     gender: { type: Number, default: 0 },
     nickName: { type: String, required: false },
     email: { type: String },
-    username: { type: String, required: true }, // 用户名
+    username: { type: String, required: true, index: true }, // 用户名
     password: { type: String, required: true }, // 密码
     passwordV: { type: Number, default: 1, required: true }, // 密码版本
     headImg: { type: String }, // 头像
-    phone: { type: String }, // 手机号
+    phone: { type: String, index: true }, // 手机号
     remark: { type: String }, // 备注
     status: { type: Number, default: 1 }, // 状态 状态 0:禁用 1：启用
     departmentName: { type: String }, // 部门名称
