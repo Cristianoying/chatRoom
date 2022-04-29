@@ -5,9 +5,12 @@ export default class UserController extends Controller {
   public async login() {
     const { ctx } = this;
     const params = ctx.request.body;
-    const [ err, res ] = await ctx.to(ctx.model.User.find());
-    console.log(err, 'err');
-    ctx.serverOk({ res, ...params, uuid: ctx.uuid() });
+    const [ err, res ] = await ctx.to(ctx.service.user.login());
+    if (err) {
+      ctx.serverWrong(err);
+    } else {
+      ctx.serverOk({ err, res, ...params, uuid: ctx.uuid() });
+    }
   }
 
   public async createUser() {

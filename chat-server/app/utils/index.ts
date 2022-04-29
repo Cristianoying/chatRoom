@@ -17,5 +17,3 @@ export function to<T, U = Error>(
     return [ err, undefined ];
   });
 }
-
-export default to;

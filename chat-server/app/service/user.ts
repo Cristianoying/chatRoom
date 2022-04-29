@@ -94,6 +94,19 @@ export default class User extends Service {
       phone,
       avatar,
       state,
-    } as any);
+    });
+  }
+
+  public async login() {
+    const { ctx } = this;
+    const { username, password } = ctx.request.query;
+    const user = await ctx.model.User.findOne({ username });
+    if (!user) {
+      throw Error('用户名不存在');
+    }
+    console.log(user.password, ctx.helper.md5(password));
+    if (user.password !== ctx.helper.md5(password)) {
+      throw Error('密码输入错误');
+    }
   }
 }

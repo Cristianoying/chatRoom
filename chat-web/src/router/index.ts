@@ -13,6 +13,10 @@ const constantRoutes:Array<RouteRecordRaw> = [
   {
     path: '/chat-with-friend',
     component: () => import('@/views/friend/index.vue')
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/login/index.vue')
   }
 ]
 

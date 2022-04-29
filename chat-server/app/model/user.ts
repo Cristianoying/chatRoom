@@ -31,7 +31,7 @@ module.exports = (app: Application) => {
     gender: { type: Number, default: 0 },
     nickName: { type: String, required: false },
     email: { type: String },
-    username: { type: String, required: true, index: true }, // 用户名
+    username: { type: String, required: true, index: true, unique: true }, // 用户名
     password: { type: String, required: true }, // 密码
     passwordV: { type: Number, default: 1, required: true }, // 密码版本
     headImg: { type: String }, // 头像
