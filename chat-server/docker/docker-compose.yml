@@ -41,7 +41,7 @@ services:
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MongoDB_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MongoDB_PASSWoRD}
+      MONGO_INITDB_ROOT_PASSWORD: ${MongoDB_PASSWORD}
     ports:
       - "${MongoDB_PORT}:27017"
     volumes:

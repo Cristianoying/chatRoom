@@ -21,3 +21,4 @@ db/
 db;C/
 redis/data/
 doc/apidoc
+config/config.local.ts

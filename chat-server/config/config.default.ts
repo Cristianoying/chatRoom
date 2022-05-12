@@ -31,7 +31,7 @@ export default (appInfo: EggAppInfo) => {
     client: {
       port: 6382, // Redis port
       host: '127.0.0.1', // Redis host
-      password: 'Senscape',
+      password: 'cris',
       db: 0,
     },
   };

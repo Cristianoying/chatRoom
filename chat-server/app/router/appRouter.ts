@@ -4,4 +4,5 @@ export default (app: Application) => {
   const { router, controller } = app;
 
   router.get(`${prefix}login`, controller.user.login);
+  router.get(`${prefix}qrcode`, controller.wechat.index);
 };
